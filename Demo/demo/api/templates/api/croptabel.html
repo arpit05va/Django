@@ -1,0 +1,26 @@
+{%extends 'api/base.html'%}
+
+{% block content%}
+
+  {% if user.is_authenticated%}
+      
+    <h1 style="text-align: center;">Crops</h1>
+     <br/>
+      <table class="table table-bordered table-striped table hover ">  
+        {% for crop in crop_list%}
+        <tr>
+          <td align="center">
+          <a href="{% url 'showcrop' crop.id %}" style="text-decoration: none;">{{crop.name}}</a>
+        </td>
+          <td align="center">
+            <a href="{% url 'updatecrop' crop.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+             <a href="{% url 'deletecrop' crop.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+          </td>
+          
+        </tr>
+        {% endfor %}
+      </table>
+      {%else%}
+        <h1 style="text-align: center; color:red">You have to Login to See Crop's Data </h1>
+      {% endif %}
+{% endblock%}

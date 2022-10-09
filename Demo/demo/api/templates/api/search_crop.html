@@ -1,0 +1,21 @@
+{%extends 'api/base.html'%}
+
+{% block content%}
+   {% if user.is_authenticated%}
+    <center>
+        {% if searched  %}
+        <h1>{{searched}}</h1>
+        <br/>
+        {%for crop in crops%}
+       {{crop.desc}} <br/>{{crop.type}} <br/>
+        {% endfor %}
+
+        {%else%}
+        <h1>Sorry !! </h1>
+        {% endif %}
+        
+    </center>
+    {%else%}
+        <h1 style="text-align: center; color:red">Login in to Search</h1>
+      {% endif %}
+{% endblock%}

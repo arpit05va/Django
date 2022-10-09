@@ -1,0 +1,23 @@
+{%extends 'api/base.html'%}
+{% block content %}
+    {% if user.is_authenticated%}
+    <center>
+        <h1>Add Crops to Database</h1> 
+        {%if submitted%}
+            Your Data is saved Successfully!!!
+
+        {% else %}
+
+       
+        <form action="" method="post">
+            {% csrf_token %}
+           {{form.as_p}}
+
+            <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+         {%endif%}
+    </center>
+       {%else%}
+        <h1 style="text-align: center; color:red">Login in to add data to crops </h1>
+      {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{%extends 'api/base.html'%}
+
+{% block content%}
+    <br>
+      <center>   
+<div class="card">
+    
+    <div class="card-header">
+   <strong> {{crop.name}}</strong>
+  </div>
+  <div class="card-body">
+    
+    <p class="card-title"><strong>Description:</strong>{{crop.desc}}</p>
+
+    <p class="card-text">
+   <strong>Type:</strong> {{crop.type}}
+   
+    </p>
+  
+  </div>
+  
+</div>
+</center>
+{% endblock%}
